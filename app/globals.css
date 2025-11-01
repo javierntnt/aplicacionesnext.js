@@ -1,0 +1,33 @@
+:root {
+  --nav-color: #2563eb; /* color por defecto */
+  --bg-color: #0f172a;  /* color base */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-color);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  transition: background 1.2s ease, color 0.8s ease;
+}
+
+.fade-transition {
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Transición del navbar */
+nav {
+  transition: background 1s ease, box-shadow 0.5s ease;
+}

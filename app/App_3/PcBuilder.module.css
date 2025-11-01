@@ -1,0 +1,123 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 2rem;
+  background: linear-gradient(180deg, #0f766e, #134e4a); /* Verde-azulado */
+  color: #f0fdfa;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.5s ease;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #99f6e4;
+  text-align: center;
+  max-width: 400px;
+  margin-bottom: 2rem;
+}
+
+.partsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.part {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 8px;
+  object-fit: contain;
+  cursor: grab;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.part:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.selected {
+  outline: 2px solid #99f6e4;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.dropZone {
+  margin-top: 2rem;
+  width: 300px;
+  height: 300px;
+  border: 3px dashed #99f6e4;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dropZone:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.dropText {
+  color: #a7f3d0;
+  text-align: center;
+  padding: 1rem;
+}
+
+.completed {
+  color: #f0fdfa;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.resetBtn {
+  margin-top: 2rem;
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.4rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.resetBtn:hover {
+  background: #059669;
+  transform: scale(1.05);
+}
+
+/* --- Responsive móvil --- */
+@media (max-width: 600px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .part {
+    width: 60px;
+    height: 60px;
+  }
+
+  .dropZone {
+    width: 220px;
+    height: 220px;
+  }
+}

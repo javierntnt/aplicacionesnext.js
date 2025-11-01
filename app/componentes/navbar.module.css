@@ -1,0 +1,72 @@
+.navbar {
+  background-color: #2563eb; /* Azul base */
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.6s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto al pasar el mouse sobre toda la barra */
+.navbar:hover {
+  background-color: #1e3a8a; /* Azul más oscuro */
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+.navList {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.navLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: color 0.3s ease, transform 0.2s ease, background-color 0.3s ease;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+}
+
+/* 🎨 Cambia de color al pasar el mouse */
+.navLink:hover {
+  color: #fdfdfd;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.08);
+}
+
+/* 🔥 Efecto al hacer clic */
+.navLink:active {
+  color: #fdfdfc;
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: scale(0.95);
+}
+
+/* ✅ Link activo (por ruta actual) */
+.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .navList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .navbar {
+    padding: 1rem;
+  }
+}
