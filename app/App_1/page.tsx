@@ -117,7 +117,7 @@ export default function ReflexMind() {
       handleWrong("❌ Respuesta incorrecta");
     }
   }
-
+ /*fadsf*/ 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -141,7 +141,7 @@ export default function ReflexMind() {
               {pair.word}
             </span>
           </div>
-
+            
           <div className={styles.options}>
             {COLOR_KEYS.map((c) => (
               <button
