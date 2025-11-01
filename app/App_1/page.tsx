@@ -31,8 +31,18 @@ export default function ReflexMind() {
   const [pair, setPair] = useState(pickPair);
   const [isRunning, setIsRunning] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
+  const [bestScore, setBestScore] = useState<number>(0);
+
   const timerRef = useRef<number | null>(null);
   const streakRef = useRef(0);
+
+  // ✅ Cargar mejor puntaje desde localStorage en cliente
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedBest = localStorage.getItem("reflexmind_best");
+      if (storedBest) setBestScore(Number(storedBest));
+    }
+  }, []);
 
   useEffect(() => {
     if (!isRunning) return;
@@ -67,9 +77,15 @@ export default function ReflexMind() {
   function finishGame() {
     setIsRunning(false);
     setMessage("🎮 Juego terminado");
-    const best = localStorage.getItem("reflexmind_best");
-    const prev = best ? Number(best) : 0;
-    if (score > prev) localStorage.setItem("reflexmind_best", String(score));
+
+    if (typeof window !== "undefined") {
+      const best = localStorage.getItem("reflexmind_best");
+      const prev = best ? Number(best) : 0;
+      if (score > prev) {
+        localStorage.setItem("reflexmind_best", String(score));
+        setBestScore(score);
+      }
+    }
   }
 
   function handleWrong(reason?: string) {
@@ -152,7 +168,7 @@ export default function ReflexMind() {
         </div>
 
         <footer className={styles.footer}>
-          Mejor puntaje: <strong>{localStorage.getItem("reflexmind_best") ?? 0}</strong>
+          Mejor puntaje: <strong>{bestScore}</strong>
         </footer>
       </main>
     </div>
